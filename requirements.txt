@@ -1,0 +1,7 @@
+pandas
+numpy
+nltk
+yfinance
+pynance
+matplotlib
+seaborn
