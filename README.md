@@ -1,104 +1,119 @@
-Predicting Price Moves with News Sentiment
-Overview
-This project, developed for the 8 Academy AIM Week 1 Challenge, analyzes the relationship between news sentiment and stock price movements. It includes quantitative analysis of stock data using technical indicators (SMA, RSI, MACD) and sentiment analysis of news headlines using NLTK VADER, correlating sentiment with stock returns. The project focuses on stocks: AAPL, AMZN, GOOG, META, MSFT, NVDA, and TSLA.
-Repository Structure
-├── data/
-│   ├── fnspid.csv              # News headlines dataset
-│   ├── yfinance_data/          # Stock price data (AAPL.csv, AMZN.csv, etc.)
-│   └── processed/              # Processed stock data with indicators
-├── notebooks/
-│   ├── quant_analysis.ipynb    # Task 2: Quantitative analysis with TA-Lib
-│   ├── sentiment_analysis.ipynb # Task 3: Sentiment analysis and correlation
-│   ├── final_report.md         # Final report summarizing findings
-│   └── *.png                   # Visualization outputs
-├── README.md                   # Project setup and info
-└── requirements.txt            # Python dependencies
+# Predicting Price Moves with News Sentiment
 
-Setup Instructions
-Prerequisites
+## Overview
 
-Python 3.8+
-Git
-Virtual environment tool (e.g., venv)
+This project was developed for the 8 Academy AIM Week 1 Challenge. It explores how news sentiment relates to stock price movements by performing:
 
-Installation
+- Quantitative analysis using technical indicators (SMA, RSI, MACD)
+- Sentiment analysis on news headlines using NLTK’s VADER
 
-Clone the Repository:
+Focused stocks: **AAPL, AMZN, GOOG, META, MSFT, NVDA, TSLA**
+
+---
+
+## Repository Structure
+
+data/
+├── fnspid.csv # News headlines dataset
+├── yfinance_data/ # Raw stock data (AAPL.csv, etc.)
+└── processed/ # Stock data with technical indicators
+
+notebooks/
+├── quant_analysis.ipynb # Task 2: Technical analysis using TA-Lib
+├── sentiment_analysis.ipynb# Task 3: Sentiment analysis and correlation
+├── final_report.md # Summary of findings
+└── *.png # Visual outputs
+
+README.md # Project info
+requirements.txt # Dependencies
+
+---
+
+## Setup Instructions
+
+### Prerequisites
+
+- Python 3.8+
+- Git
+- Virtual environment (e.g., `venv`)
+
+### Steps
+
+1. **Clone the repository:**
+```bash
 git clone https://github.com/abmoh4219/Predicting-Price-Moves-with-News-Sentiment.git
 cd Predicting-Price-Moves-with-News-Sentiment
-
-
-Create and Activate Virtual Environment:
+2. **Create and activate a virtual environment:**
+```bash
+# Windows
 python -m venv venv
-source venv/Scripts/activate  # Windows
-# or
-source venv/bin/activate     # Linux/macOS
+venv\Scripts\activate
 
-
-Install Dependencies:
+# macOS/Linux
+python -m venv venv
+source venv/bin/activate
+3.Install dependencies:
 pip install -r requirements.txt
-
-Note: ta-lib may require additional setup. See TA-Lib Installation for platform-specific instructions.
-
-Download NLTK Data:
+4. Download VADER lexicon for sentiment analysis:
 python -c "import nltk; nltk.download('vader_lexicon')"
+5.Verify data files exist:
+Ensure you have:
 
+data/fnspid.csv
 
-Verify Data:Ensure data/fnspid.csv and data/yfinance_data/*.csv exist. If not, contact the project maintainer for access.
-
-
+CSV files in data/yfinance_data/
 Running the Notebooks
+Start Jupyter:
 
-Start Jupyter Notebook:python -m notebook
+bash
+Copy
+Edit
+python -m notebook
+Then open and run:
 
+quant_analysis.ipynb: Computes SMA, RSI, MACD and saves results
 
-Run Notebooks:
-Open notebooks/quant_analysis.ipynb for Task 2 (generates technical indicators and saves to data/processed/).
-Open notebooks/sentiment_analysis.ipynb for Task 3 (computes sentiment and correlations).
-
+sentiment_analysis.ipynb: Applies VADER sentiment analysis and calculates correlations
 
 Outputs:
-Plots saved in notebooks/.
-Processed data saved in data/processed/.
 
+Plots → notebooks/*.png
 
+Processed data → data/processed/
 
-Project Details
-
+Project Tasks
 Task 2: Quantitative Analysis
-Uses TA-Lib to calculate SMA (20-day), RSI (14-day), and MACD for each stock.
-Visualizes price trends and indicators.
+Uses TA-Lib to calculate:
 
+20-day SMA
 
-Task 3: Sentiment Analysis and Correlation
-Applies NLTK VADER to analyze news sentiment from fnspid.csv.
-Correlates daily sentiment with stock returns.
+14-day RSI
 
+MACD
 
-Challenges:
-Optimized performance by sampling news data and reducing plot sizes.
-Fixed path issues for saving processed data.
+Visualizes trends for each stock
 
+Task 3: Sentiment Analysis
+Analyzes fnspid.csv using VADER (NLTK)
 
+Calculates correlation between sentiment and stock returns
+
+Challenges Tackled
+Performance optimization via sampling
+
+Reduced plot file sizes
+
+Fixed path errors while saving data
 
 Dependencies
-Key libraries (see requirements.txt for full list):
+Core libraries (see requirements.txt):
 
-pandas, numpy: Data manipulation
-matplotlib, seaborn: Visualization
-talib: Technical indicators
-nltk: Sentiment analysis
-jupyter: Interactive notebooks
+pandas, numpy — data processing
 
-Contributing
+matplotlib, seaborn — visualization
 
-Fork the repository.
-Create a branch: git checkout -b feature-name.
-Commit changes: git commit -m "Description".
-Push: git push origin feature-name.
-Submit a pull request.
+nltk — sentiment analysis
 
-License
-This project is licensed under the MIT License.
-Contact
-For issues or questions, contact [your-email] or open a GitHub issue.
+talib — technical indicators
+
+jupyter — notebook interface
